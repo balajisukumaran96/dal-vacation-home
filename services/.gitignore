@@ -1,0 +1,27 @@
+node_modules/
+.env
+.env.local
+.env.*.local
+.env.production
+
+# Sensitive files
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+secrets.json
+private_key.json
+google-credentials.json
+serverless-housing-message.json
+
+# AWS
+aws-credentials.json
+.aws/
+
+# Build and cache
+build/
+dist/
+.build/
+*.log
+.DS_Store
