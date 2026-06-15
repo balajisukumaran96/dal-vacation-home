@@ -1,0 +1,459 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >-
+  test
+
+Transform:
+  - AWS::Serverless-2016-10-31
+
+Resources:
+  AdminRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: DynamoDBAccess
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - dynamodb:*
+                Resource: "*"
+
+  DalVacationHomeApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: "DalVacationHomeApi"
+      StageName: "Prod"
+      Cors:
+        AllowMethods: "'GET,POST,PUT,DELETE,OPTIONS'"
+        AllowHeaders: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+        AllowOrigin: "'*'"
+        AllowCredentials: "'true'"
+    DeletionPolicy: Retain
+
+  GetTicketFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/concerns/GetTicket.handler
+      Runtime: nodejs20.x
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 100
+      Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
+      Role: !GetAtt AdminRole.Arn
+      Environment:
+        Variables:
+          CLIENT_URL: https://dal-vacation-home-service-konfsid46q-ue.a.run.app
+          ALLOWED_METHODS: GET,POST,PUT,DELETE,OPTIONS
+          ALLOWED_HEADERS: Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token
+          ALLOWED_CREDENTIALS: true
+
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /concerns/ticket/
+            Method: POST
+            RestApiId: !Ref DalVacationHomeApi
+
+  UpdateTicketFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/concerns/UpdateTicket.handler
+      Runtime: nodejs20.x
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 100
+      Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
+      Role: !GetAtt AdminRole.Arn
+      Environment:
+        Variables:
+          CLIENT_URL: https://dal-vacation-home-service-konfsid46q-ue.a.run.app
+          ALLOWED_METHODS: GET,POST,PUT,DELETE,OPTIONS
+          ALLOWED_HEADERS: Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token
+          ALLOWED_CREDENTIALS: true
+
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /concerns/update/
+            Method: POST
+            RestApiId: !Ref DalVacationHomeApi
+
+  VerifyCipherFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/user/verifyCipher.PostItemHandler
+      Runtime: nodejs20.x
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 100
+      Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
+      Role: !GetAtt AdminRole.Arn
+      Environment:
+        Variables:
+          CLIENT_URL: https://dal-vacation-home-service-konfsid46q-ue.a.run.app
+          ALLOWED_METHODS: GET,POST,PUT,DELETE,OPTIONS
+          ALLOWED_HEADERS: Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token
+          ALLOWED_CREDENTIALS: true
+
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /user/verifycipher/
+            Method: POST
+            RestApiId: !Ref DalVacationHomeApi
+
+  UserRegisterFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/user/register.PostItemHandler
+      Runtime: nodejs16.x
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 100
+      Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
+      Role: !GetAtt AdminRole.Arn
+      Environment:
+        Variables:
+          CLIENT_URL: https://dal-vacation-home-service-konfsid46q-ue.a.run.app
+          ALLOWED_METHODS: GET,POST,PUT,DELETE,OPTIONS
+          ALLOWED_HEADERS: Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token
+          ALLOWED_CREDENTIALS: true
+
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /user/register/
+            Method: POST
+            RestApiId: !Ref DalVacationHomeApi
+
+  UserLoginFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/user/login.PostItemHandler
+      Runtime: nodejs16.x
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 100
+      Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
+      Role: !GetAtt AdminRole.Arn
+      Environment:
+        Variables:
+          CLIENT_URL: https://dal-vacation-home-service-konfsid46q-ue.a.run.app
+          ALLOWED_METHODS: GET,POST,PUT,DELETE,OPTIONS
+          ALLOWED_HEADERS: Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token
+          ALLOWED_CREDENTIALS: true
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /user/login/
+            Method: POST
+            RestApiId: !Ref DalVacationHomeApi
+
+  PlaceGetAllFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/place/getAll.GetItemHandler
+      Runtime: nodejs16.x
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 100
+      Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
+      Role: !GetAtt AdminRole.Arn
+      Environment:
+        Variables:
+          CLIENT_URL: https://dal-vacation-home-service-konfsid46q-ue.a.run.app
+          ALLOWED_METHODS: GET,POST,PUT,DELETE,OPTIONS
+          ALLOWED_HEADERS: Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token
+          ALLOWED_CREDENTIALS: true
+
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /places/
+            Method: GET
+            RestApiId: !Ref DalVacationHomeApi
+
+  PlaceAddFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/place/addPlace.PostItemHandler
+      Runtime: nodejs16.x
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 100
+      Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
+      Role: !GetAtt AdminRole.Arn
+      Environment:
+        Variables:
+          CLIENT_URL: https://dal-vacation-home-service-konfsid46q-ue.a.run.app
+          ALLOWED_METHODS: GET,POST,PUT,DELETE,OPTIONS
+          ALLOWED_HEADERS: Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token
+          ALLOWED_CREDENTIALS: true
+
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /places/add-places/
+            Method: POST
+            RestApiId: !Ref DalVacationHomeApi
+
+  UserPlacesFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/place/userPlaces.GetItemHandler
+      Runtime: nodejs16.x
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 100
+      Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
+      Role: !GetAtt AdminRole.Arn
+      Environment:
+        Variables:
+          CLIENT_URL: https://dal-vacation-home-service-konfsid46q-ue.a.run.app
+          ALLOWED_METHODS: GET,POST,PUT,DELETE,OPTIONS
+          ALLOWED_HEADERS: Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token
+          ALLOWED_CREDENTIALS: true
+
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /places/user-places/
+            Method: GET
+            RestApiId: !Ref DalVacationHomeApi
+
+  UpdateUserFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/user/updateUser.PutItemHandler
+      Runtime: nodejs16.x
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 100
+      Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
+      Role: !GetAtt AdminRole.Arn
+      Environment:
+        Variables:
+          CLIENT_URL: https://dal-vacation-home-service-konfsid46q-ue.a.run.app
+          ALLOWED_METHODS: GET,POST,PUT,DELETE,OPTIONS
+          ALLOWED_HEADERS: Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token
+          ALLOWED_CREDENTIALS: true
+
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /user/update-user/
+            Method: PUT
+            RestApiId: !Ref DalVacationHomeApi
+
+  UpdatePlaceFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/place/updatePlace.PutItemHandler
+      Runtime: nodejs16.x
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 100
+      Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
+      Role: !GetAtt AdminRole.Arn
+      Environment:
+        Variables:
+          CLIENT_URL: https://dal-vacation-home-service-konfsid46q-ue.a.run.app
+          ALLOWED_METHODS: GET,POST,PUT,DELETE,OPTIONS
+          ALLOWED_HEADERS: Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token
+          ALLOWED_CREDENTIALS: true
+
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /places/update-place/
+            Method: PUT
+            RestApiId: !Ref DalVacationHomeApi
+
+  GetPlaceFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/place/getPlace.GetItemHandler
+      Runtime: nodejs16.x
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 100
+      Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
+      Role: !GetAtt AdminRole.Arn
+      Environment:
+        Variables:
+          CLIENT_URL: https://dal-vacation-home-service-konfsid46q-ue.a.run.app
+          ALLOWED_METHODS: GET,POST,PUT,DELETE,OPTIONS
+          ALLOWED_HEADERS: Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token
+          ALLOWED_CREDENTIALS: true
+
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /places/{id}
+            Method: GET
+            RestApiId: !Ref DalVacationHomeApi
+
+  SearchPlaceFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/place/searchPlace.GetItemHandler
+      Runtime: nodejs16.x
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 100
+      Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
+      Role: !GetAtt AdminRole.Arn
+      Environment:
+        Variables:
+          CLIENT_URL: https://dal-vacation-home-service-konfsid46q-ue.a.run.app
+          ALLOWED_METHODS: GET,POST,PUT,DELETE,OPTIONS
+          ALLOWED_HEADERS: Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token
+          ALLOWED_CREDENTIALS: true
+
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /places/search/{key}
+            Method: GET
+            RestApiId: !Ref DalVacationHomeApi
+
+  GetBookingFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/booking/getBooking.GetItemHandler
+      Runtime: nodejs16.x
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 100
+      Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
+      Role: !GetAtt AdminRole.Arn
+      Environment:
+        Variables:
+          CLIENT_URL: https://dal-vacation-home-service-konfsid46q-ue.a.run.app
+          ALLOWED_METHODS: GET,POST,PUT,DELETE,OPTIONS
+          ALLOWED_HEADERS: Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token
+          ALLOWED_CREDENTIALS: true
+
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /bookings/
+            Method: GET
+            RestApiId: !Ref DalVacationHomeApi
+
+  FetchAllQuestionFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/user/fetchAllQuestions.GetItemHandler
+      Runtime: nodejs16.x
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 100
+      Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
+      Role: !GetAtt AdminRole.Arn
+      Environment:
+        Variables:
+          CLIENT_URL: https://dal-vacation-home-service-konfsid46q-ue.a.run.app
+          ALLOWED_METHODS: GET,POST,PUT,DELETE,OPTIONS
+          ALLOWED_HEADERS: Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token
+          ALLOWED_CREDENTIALS: true
+
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /fetchAllQuestions/
+            Method: GET
+            RestApiId: !Ref DalVacationHomeApi
+
+  ReviewAnalysisFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/user/reviewAnalysis.PostItemHandler
+      Runtime: nodejs16.x
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 100
+      Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
+      Role: !GetAtt AdminRole.Arn
+      Environment:
+        Variables:
+          CLIENT_URL: https://dal-vacation-home-service-konfsid46q-ue.a.run.app
+          ALLOWED_METHODS: GET,POST,PUT,DELETE,OPTIONS
+          ALLOWED_HEADERS: Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token
+          ALLOWED_CREDENTIALS: true
+
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /user/reviewAnalysis/
+            Method: POST
+            RestApiId: !Ref DalVacationHomeApi
+
+  # CreateBookingFunction:
+  #   Type: AWS::Serverless::Function
+  #   Properties:
+  #     Handler: src/booking/createBooking.PostItemHandler
+  #     Runtime: nodejs16.x
+  #     Architectures:
+  #       - x86_64
+  #     MemorySize: 128
+  #     Timeout: 100
+  #     Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
+  #     Role: !GetAtt AdminRole.Arn
+  #     Environment:
+  #       Variables:
+  #         CLIENT_URL: https://dal-vacation-home-service-konfsid46q-ue.a.run.app
+  #         ALLOWED_METHODS: GET,POST,PUT,DELETE,OPTIONS
+  #         ALLOWED_HEADERS: Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token
+  #         ALLOWED_CREDENTIALS: true
+
+  #     Events:
+  #       Api:
+  #         Type: Api
+  #         Properties:
+  #           Path: /bookings/
+  #           Method: POST
+  #           RestApiId: !Ref DalVacationHomeApi
+
+Outputs:
+  WebEndpoint:
+    Description: "API Gateway endpoint URL for Prod stage"
+    Value: !Sub "https://${DalVacationHomeApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"

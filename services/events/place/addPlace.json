@@ -1,0 +1,63 @@
+{
+  "body": "{\"title\":\"1118 Wellington Street\",\"address\":\"1118 Wellington Street\",\"description\":\"1118 Wellington Street\",\"perks\":[\"wifi\",\"parking\"],\"roomType\":\"StandardRoom\",\"extraInfo\":\"1118 Wellington Street\",\"checkIn\":\"\",\"checkOut\":\"\",\"maxGuests\":10,\"price\":\"200\",\"addedPhotos\":[\"https://dalvacation-home-profile.s3.us-east-1.amazonaws.com/The_Lauren_condo_Bethesda_MD_2021-12-12_10-11-55_1.jpg\",\"https://dalvacation-home-profile.s3.us-east-1.amazonaws.com/homeguide-new-apartment-building.jpg\",\"https://dalvacation-home-profile.s3.us-east-1.amazonaws.com/EleanorEmail-847750221ae1499c972c977f279d2d5e.png\",\"https://dalvacation-home-profile.s3.us-east-1.amazonaws.com/istockphoto-1398814566-612x612.jpg\",\"https://dalvacation-home-profile.s3.us-east-1.amazonaws.com/ParkLine-apartment-in-Miami-FL.jpg\"]}",
+  "resource": "/{proxy+}",
+  "path": "/path/to/resource",
+  "httpMethod": "POST",
+  "isBase64Encoded": false,
+  "queryStringParameters": {
+    "foo": "bar"
+  },
+  "pathParameters": {
+    "proxy": "/path/to/resource"
+  },
+  "stageVariables": {
+    "baz": "qux"
+  },
+  "headers": {
+    "Authorization": "Bearer eyJraWQiOiI0N0h4ZjY4d0VNcXlOM3o2Y1lXR0JuYzJ3VjNPMW0rY2MyN2lEd3FoOEtnPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIzNGQ4YjQyOC00MGExLTcwMTktMzY1NC1hNjAyZGUzN2VlZWQiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfZnhxZEdQbm5aIiwiY29nbml0bzp1c2VybmFtZSI6IjM0ZDhiNDI4LTQwYTEtNzAxOS0zNjU0LWE2MDJkZTM3ZWVlZCIsIm9yaWdpbl9qdGkiOiJlNTE0MDFkNC1hZGJjLTQwMDctYmYzNy0yMWNhZTZmN2ZjNTIiLCJhdWQiOiI0OWdmMTRzbnQyaGdyMHA0Z3JmOXNsa2N1cSIsImV2ZW50X2lkIjoiNmJlODk3ZTUtZmVmMy00MjMxLTgxMmUtZTZkMmNmMzEyZjUwIiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE3MjE5MjEzMTMsIm5hbWUiOiJCYWxhamkgU3VrdW1hcmFuIiwiZXhwIjoxNzIxOTI0OTEzLCJpYXQiOjE3MjE5MjEzMTMsImp0aSI6ImFmOWYyMTMyLWFhNTgtNDcwZi1iZmZmLWY3OTYzNWY4OTNkYSIsImVtYWlsIjoiYmFsYWppY3IwMDdAZ21haWwuY29tIn0.idpDkXmYpdM2JUpNQPgTATFQbW6KjJnUftWQTufpYi2hmhNQ5RaGETZImkq_SV8MV6DlX0E2l8-Auz7uHvrgeTYZW6hP5eRvXULDZgsjRRWB3Ydh_ReJnWVX97q0lc5PcD4QwSXYeXj4e6ylsvwIu-xdPkT21KjMESMnSfmQ39g8qps9Owrg3sbwiftda5w0UtSybmzatw82quNGQDjj3-Uhj9eRtr7T0qCLpPEd_X9E1P1LUSU6ev6TIQyojVIKs8qy-mXK-2bhswZSOOpdic-PI7DNhz0171dtgxNl0sdQsakTtxZ6EiNsNmV6lv1ifxZRi69GRYxpVTFulTxFRg",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "Accept-Encoding": "gzip, deflate, sdch",
+    "Accept-Language": "en-US,en;q=0.8",
+    "Cache-Control": "max-age=0",
+    "CloudFront-Forwarded-Proto": "https",
+    "CloudFront-Is-Desktop-Viewer": "true",
+    "CloudFront-Is-Mobile-Viewer": "false",
+    "CloudFront-Is-SmartTV-Viewer": "false",
+    "CloudFront-Is-Tablet-Viewer": "false",
+    "CloudFront-Viewer-Country": "US",
+    "Host": "1234567890.execute-api.us-east-1.amazonaws.com",
+    "Upgrade-Insecure-Requests": "1",
+    "User-Agent": "Custom User Agent String",
+    "Via": "1.1 08f323deadbeefa7af34d5feb414ce27.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Id": "cDehVQoZnx43VYQb9j2-nvCh-9z396Uhbp027Y2JvkCPNLmGJHqlaA==",
+    "X-Forwarded-For": "127.0.0.1, 127.0.0.2",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https"
+  },
+  "requestContext": {
+    "accountId": "123456789012",
+    "resourceId": "123456",
+    "stage": "prod",
+    "requestId": "c6af9ac6-7b61-11e6-9a41-93e8deadbeef",
+    "requestTime": "09/Apr/2015:12:34:56 +0000",
+    "requestTimeEpoch": 1428582896000,
+    "identity": {
+      "cognitoIdentityPoolId": null,
+      "accountId": null,
+      "cognitoIdentityId": null,
+      "caller": null,
+      "accessKey": null,
+      "sourceIp": "127.0.0.1",
+      "cognitoAuthenticationType": null,
+      "cognitoAuthenticationProvider": null,
+      "userArn": null,
+      "userAgent": "Custom User Agent String",
+      "user": null
+    },
+    "path": "/prod/path/to/resource",
+    "resourcePath": "/{proxy+}",
+    "httpMethod": "POST",
+    "apiId": "1234567890",
+    "protocol": "HTTP/1.1"
+  }
+}

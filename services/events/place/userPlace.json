@@ -1,0 +1,67 @@
+{
+  "body": "{\n\"title\": \"Cozy Cottage\",\n  \"address\": \"123 Main St, Springfield, USA\",\n  \"addedPhotos\": [\n    \"https://example.com/photo1.jpg\",\n    \"https://example.com/photo2.jpg\",\n    \"https://example.com/photo3.jpg\"\n  ],\n  \"description\": \"A cozy cottage perfect for a weekend getaway.\",\n  \"perks\": [\n    \"Free Wi-Fi\",\n    \"Pet Friendly\",\n    \"Complimentary Breakfast\",\n    \"Pool Access\"\n  ],\n  \"extraInfo\": \"Check-in after 3 PM, Check-out before 11 AM.\",\n  \"maxGuests\": 4,\n  \"price\": 150\n}\n",
+  "resource": "/{proxy+}",
+  "path": "/path/to/resource",
+  "httpMethod": "GET",
+  "isBase64Encoded": false,
+  "queryStringParameters": {
+    "foo": "bar",
+    "id": "dc79b814-9c87-4c07-b6fa-2a89c4560151",
+    "key": "Main"
+  },
+  "pathParameters": {
+    "proxy": "/path/to/resource",
+    "id": "dc79b814-9c87-4c07-b6fa-2a89c4560151",
+    "key": "Main"
+  },
+  "stageVariables": {
+    "baz": "qux"
+  },
+  "headers": {
+    "Authorization": "Bearer eyJraWQiOiI0N0h4ZjY4d0VNcXlOM3o2Y1lXR0JuYzJ3VjNPMW0rY2MyN2lEd3FoOEtnPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI5NDQ4MTQxOC00MDQxLTcwMzAtY2EzOC1kZjA0MDE5NzNjZjciLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfZnhxZEdQbm5aIiwiY29nbml0bzp1c2VybmFtZSI6Ijk0NDgxNDE4LTQwNDEtNzAzMC1jYTM4LWRmMDQwMTk3M2NmNyIsIm9yaWdpbl9qdGkiOiIwNmZkNTI0OS0zNTU0LTRhZTktYjgxOS02MTNkNTZhZDFmY2EiLCJhdWQiOiI0OWdmMTRzbnQyaGdyMHA0Z3JmOXNsa2N1cSIsImV2ZW50X2lkIjoiYjQ1MTMyZTgtZTBhZC00ZTE5LWFiMzktYmVlOGM4ZTJmZDI4IiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE3MjAwMzE3ODYsIm5hbWUiOiJ0ZXN0NiIsImV4cCI6MTcyMDAzNTM4NiwiaWF0IjoxNzIwMDMxNzg2LCJqdGkiOiJhNmU1NzFmNy05MTY0LTRlMzktOTZhZC0xYjU5ZDViMWQyNGIiLCJlbWFpbCI6InRlc3Q2QGdtYWlsLmNvbSJ9.QdGg_BcBj8oGJOwCmPstVTd18EmUfKkr-_vkh1ypiNEXJD1gV_Bp5o-Smxymos7JK3qw5svrQ5Lpt6gCwm3pYOEUEchkR--dWILh0kYOsYQhSJv-OQGofc1aGGpT903GPKW6_Q6SrMBLRLIIfipXg4-568Amqyt4gz_kJAPY1Om61gOmamzjonMKrkVe7qjwfbu_g28BF0N3qA4lOghE0_0hgVzKG009dWsKgU9IjIuvetL5F4rUhj4iSZlkZnDZqO-zZQUXn5pfTltCYeI97HUmNuuW8kBXnOpGkbuwO_hTICsfkM8R3GZhGEwDo4Q8kL_KPOhbx-RmShBtCBShPA",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "Accept-Encoding": "gzip, deflate, sdch",
+    "Accept-Language": "en-US,en;q=0.8",
+    "Cache-Control": "max-age=0",
+    "CloudFront-Forwarded-Proto": "https",
+    "CloudFront-Is-Desktop-Viewer": "true",
+    "CloudFront-Is-Mobile-Viewer": "false",
+    "CloudFront-Is-SmartTV-Viewer": "false",
+    "CloudFront-Is-Tablet-Viewer": "false",
+    "CloudFront-Viewer-Country": "US",
+    "Host": "1234567890.execute-api.us-east-1.amazonaws.com",
+    "Upgrade-Insecure-Requests": "1",
+    "User-Agent": "Custom User Agent String",
+    "Via": "1.1 08f323deadbeefa7af34d5feb414ce27.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Id": "cDehVQoZnx43VYQb9j2-nvCh-9z396Uhbp027Y2JvkCPNLmGJHqlaA==",
+    "X-Forwarded-For": "127.0.0.1, 127.0.0.2",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https"
+  },
+  "requestContext": {
+    "accountId": "123456789012",
+    "resourceId": "123456",
+    "stage": "prod",
+    "requestId": "c6af9ac6-7b61-11e6-9a41-93e8deadbeef",
+    "requestTime": "09/Apr/2015:12:34:56 +0000",
+    "requestTimeEpoch": 1428582896000,
+    "identity": {
+      "cognitoIdentityPoolId": null,
+      "accountId": null,
+      "cognitoIdentityId": null,
+      "caller": null,
+      "accessKey": null,
+      "sourceIp": "127.0.0.1",
+      "cognitoAuthenticationType": null,
+      "cognitoAuthenticationProvider": null,
+      "userArn": null,
+      "userAgent": "Custom User Agent String",
+      "user": null
+    },
+    "path": "/prod/path/to/resource",
+    "resourcePath": "/{proxy+}",
+    "httpMethod": "POST",
+    "apiId": "1234567890",
+    "protocol": "HTTP/1.1"
+  }
+}
